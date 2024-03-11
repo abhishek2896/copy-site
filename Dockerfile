@@ -14,4 +14,6 @@ RUN go mod download
 COPY *.go ./
 
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o fetch main.go
+RUN go build -o /usr/local/bin/fetch main.go
+
+ENTRYPOINT ["fetch"]
